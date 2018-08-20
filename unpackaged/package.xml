@@ -5,6 +5,11 @@
     <members>FlowInterviewSingleValue</members>
   </types>
   <types>
+    <name>ApexClass</name>
+    <members>AccountUtils</members>
+    <members>AccountUtilsTest</members>
+  </types>
+  <types>
     <name>FlowDefinition</name>
     <members>CloneOppLineItems_Clean</members>
   </types>
