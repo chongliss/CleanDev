@@ -67,6 +67,26 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>true</enableFeeds>
     <enableHistory>false</enableHistory>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    <searchLayouts>
+        <customTabListAdditionalFields>ACCOUNT.NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ACCOUNT.ADDRESS1_CITY</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ACCOUNT.PHONE1</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ACCOUNT.SITE</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CORE.USERS.ALIAS</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ACCOUNT.TYPE</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ACCOUNT.SITE</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CORE.USERS.ALIAS</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ACCOUNT.TYPE</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ACCOUNT.PHONE1</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ACCOUNT.SITE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ACCOUNT.PHONE1</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
     <fields>
         <fullName>AccountNumber</fullName>
         <trackFeedHistory>false</trackFeedHistory>
@@ -343,47 +363,6 @@
         <fullName>YearStarted</fullName>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
-    <listViews>
-        <fullName>AllAccounts</fullName>
-        <filterScope>Everything</filterScope>
-        <label>All Accounts</label>
-    </listViews>
-    <listViews>
-        <fullName>MyAccounts</fullName>
-        <filterScope>Mine</filterScope>
-        <label>My Accounts</label>
-    </listViews>
-    <listViews>
-        <fullName>NewLastWeek</fullName>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>ACCOUNT.CREATED_DATE</field>
-            <operation>equals</operation>
-            <value>LAST_WEEK</value>
-        </filters>
-        <label>New Last Week</label>
-    </listViews>
-    <listViews>
-        <fullName>NewThisWeek</fullName>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>ACCOUNT.CREATED_DATE</field>
-            <operation>equals</operation>
-            <value>THIS_WEEK</value>
-        </filters>
-        <label>New This Week</label>
-    </listViews>
-    <listViews>
-        <fullName>PlatinumandGoldSLACustomers</fullName>
-        <columns>ACCOUNT.NAME</columns>
-        <columns>ACCOUNT.SITE</columns>
-        <columns>ACCOUNT.ADDRESS1_STATE</columns>
-        <columns>ACCOUNT.PHONE1</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <filterScope>Everything</filterScope>
-        <label>Platinum and Gold SLA Customers</label>
-    </listViews>
-    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypes>
         <fullName>Customer</fullName>
         <active>true</active>
@@ -668,33 +647,6 @@
             </values>
         </picklistValues>
     </recordTypes>
-    <searchLayouts>
-        <customTabListAdditionalFields>ACCOUNT.NAME</customTabListAdditionalFields>
-        <customTabListAdditionalFields>ACCOUNT.ADDRESS1_CITY</customTabListAdditionalFields>
-        <customTabListAdditionalFields>ACCOUNT.PHONE1</customTabListAdditionalFields>
-        <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>ACCOUNT.SITE</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>CORE.USERS.ALIAS</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>ACCOUNT.TYPE</lookupDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>ACCOUNT.SITE</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>CORE.USERS.ALIAS</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>ACCOUNT.TYPE</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>ACCOUNT.PHONE1</lookupPhoneDialogsAdditionalFields>
-        <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>ACCOUNT.SITE</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>ACCOUNT.PHONE1</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
-    </searchLayouts>
-    <sharingModel>ReadWrite</sharingModel>
-    <validationRules>
-        <fullName>EngagementScoreOldCustomers</fullName>
-        <active>true</active>
-        <description>Engagement Score must be populated for accounts &gt; 1 year</description>
-        <errorConditionFormula>AND(NOW()&gt;CreatedDate+365,IsNull(Engagement_Score__c))</errorConditionFormula>
-        <errorDisplayField>Engagement_Score__c</errorDisplayField>
-        <errorMessage>Engagement Score must be populated for accounts older than 1 year.</errorMessage>
-    </validationRules>
     <webLinks>
         <fullName>Billing</fullName>
         <availability>online</availability>
@@ -714,4 +666,52 @@
         <showsStatus>true</showsStatus>
         <url>http://www.genwatt.com/genwatt/billing.htm?actname={!Account_Name}</url>
     </webLinks>
+    <validationRules>
+        <fullName>EngagementScoreOldCustomers</fullName>
+        <active>true</active>
+        <description>Engagement Score must be populated for accounts &gt; 1 year</description>
+        <errorConditionFormula>AND(NOW()&gt;CreatedDate+180,IsNull(Engagement_Score__c))</errorConditionFormula>
+        <errorDisplayField>Engagement_Score__c</errorDisplayField>
+        <errorMessage>Engagement Score must be populated for accounts older than 1 year.</errorMessage>
+    </validationRules>
+    <listViews>
+        <fullName>AllAccounts</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All Accounts</label>
+    </listViews>
+    <listViews>
+        <fullName>MyAccounts</fullName>
+        <filterScope>Mine</filterScope>
+        <label>My Accounts</label>
+    </listViews>
+    <listViews>
+        <fullName>NewLastWeek</fullName>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ACCOUNT.CREATED_DATE</field>
+            <operation>equals</operation>
+            <value>LAST_WEEK</value>
+        </filters>
+        <label>New Last Week</label>
+    </listViews>
+    <listViews>
+        <fullName>NewThisWeek</fullName>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ACCOUNT.CREATED_DATE</field>
+            <operation>equals</operation>
+            <value>THIS_WEEK</value>
+        </filters>
+        <label>New This Week</label>
+    </listViews>
+    <listViews>
+        <fullName>PlatinumandGoldSLACustomers</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.SITE</columns>
+        <columns>ACCOUNT.ADDRESS1_STATE</columns>
+        <columns>ACCOUNT.PHONE1</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <label>Platinum and Gold SLA Customers</label>
+    </listViews>
 </CustomObject>
