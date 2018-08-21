@@ -670,7 +670,7 @@
         <fullName>EngagementScoreOldCustomers</fullName>
         <active>true</active>
         <description>Engagement Score must be populated for accounts &gt; 1 year</description>
-        <errorConditionFormula>AND(NOW()&gt;CreatedDate+180,IsNull(Engagement_Score__c))</errorConditionFormula>
+        <errorConditionFormula>AND(NOW()&gt;CreatedDate+365,IsNull(Engagement_Score__c))</errorConditionFormula>
         <errorDisplayField>Engagement_Score__c</errorDisplayField>
         <errorMessage>Engagement Score must be populated for accounts older than 1 year.</errorMessage>
     </validationRules>
